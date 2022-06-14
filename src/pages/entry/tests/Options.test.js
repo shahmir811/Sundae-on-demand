@@ -1,5 +1,4 @@
-// import { render, screen } from '../../../test-utils/testing-library-utils';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../../test-utils/testing-library-utils';
 import userEvent from '@testing-library/user-event';
 
 import Options from '../Options';
@@ -9,12 +8,12 @@ test('displays image for each scoop option from server', async () => {
 
 	// find images
 	const scoopImages = await screen.findAllByRole('img', { name: /scoop$/i });
-	expect(scoopImages).toHaveLength(4);
+	expect(scoopImages).toHaveLength(2);
 
 	// confirm alt text of images
 	// @ts-ignore
 	const altText = scoopImages.map(element => element.alt);
-	expect(altText).toEqual(['Mint chip', 'Vanilla', 'Chocolate', 'Salted caramel']);
+	expect(altText).toEqual(['Chocolate scoop', 'Vanilla scoop']);
 });
 
 test('Displays image for each toppings option from server', async () => {
